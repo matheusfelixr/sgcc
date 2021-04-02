@@ -16,7 +16,7 @@ public class Employee {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "EMPLOYEE", referencedColumnName = "ID")
+    @JoinColumn(name = "PERSON", referencedColumnName = "ID")
     private Person person;
 
     @Column(name = "ACTIVE")
