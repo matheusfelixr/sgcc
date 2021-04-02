@@ -31,7 +31,7 @@ public class UserAuthentication {
     @Column(name = "IS_ADMIN", nullable = false)
     private Boolean isAdmin;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "EMPLOYEE", referencedColumnName = "ID")
     private Employee employee;
 

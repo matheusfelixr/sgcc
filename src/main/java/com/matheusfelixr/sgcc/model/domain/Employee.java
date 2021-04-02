@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "EMPLOYEE" )
+@Table(name = "EMPLOYEE")
 @SequenceGenerator(name = "SEQ_EMPLOYEE", sequenceName = "SEQ_EMPLOYEE", allocationSize = 1)
 public class Employee {
 
@@ -15,7 +15,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_EMPLOYEE")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "EMPLOYEE", referencedColumnName = "ID")
     private Person person;
 
@@ -24,5 +24,13 @@ public class Employee {
 
     @Embedded
     private DataControlImpl dataControl;
+
+    public DataControlImpl getDataControl() {
+        if (this.dataControl == null) {
+            dataControl = new DataControlImpl();
+        }
+        return dataControl;
+    }
+
 
 }

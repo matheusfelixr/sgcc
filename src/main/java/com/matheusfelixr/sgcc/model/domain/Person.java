@@ -27,4 +27,18 @@ public class Person {
     @Embedded
     private DataControlImpl dataControl;
 
+    public CancellationImpl getCancellation() {
+        if(this.cancellation == null){
+            cancellation = new CancellationImpl();
+        }
+        return cancellation;
+    }
+
+    public DataControlImpl getDataControl() {
+        if(this.dataControl== null){
+            dataControl = new DataControlImpl();
+        }
+        return dataControl;
+    }
+
 }

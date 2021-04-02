@@ -1,5 +1,6 @@
 package com.matheusfelixr.sgcc.service;
 
+import com.matheusfelixr.sgcc.model.domain.Employee;
 import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
 import com.matheusfelixr.sgcc.model.dto.MessageDTO;
 import com.matheusfelixr.sgcc.model.dto.security.AuthenticateRequestDTO;
@@ -50,6 +51,9 @@ public class SecurityService implements UserDetailsService {
 
     @Autowired
     private HistoryResetPasswordService historyResetPasswordService;
+
+    @Autowired
+    private EmployeeService employeeService;
 	
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -112,12 +116,14 @@ public class SecurityService implements UserDetailsService {
     }
 
 
-    public MessageDTO createUser(CreateUserRequestDTO createUserRequestDTO) throws Exception {
+    public MessageDTO createUser(CreateUserRequestDTO createUserRequestDTO, UserAuthentication currentUser) throws Exception {
         // Pego senha
         String password = this.getPassword(createUserRequestDTO);
 
+        Employee employee = this.employeeService.create(createUserRequestDTO, currentUser);
+
         //Cria objeto a ser salvo
-        UserAuthentication ret = this.getUserAuthentication(createUserRequestDTO, password);
+        UserAuthentication ret = this.getUserAuthentication(createUserRequestDTO, password, employee);
 
         //chama metodo para criar usario
         this.userAuthenticationService.create(ret);
@@ -125,13 +131,14 @@ public class SecurityService implements UserDetailsService {
         return new MessageDTO ("Usuário cadastrado com sucesso! Foi enviada a senha para o E-mail: " + EmailHelper.maskEmail(ret.getEmail()));
     }
 
-    private UserAuthentication getUserAuthentication(CreateUserRequestDTO createUserRequestDTO, String password) {
+    private UserAuthentication getUserAuthentication(CreateUserRequestDTO createUserRequestDTO, String password, Employee employee) {
         UserAuthentication ret = new UserAuthentication();
-        ret.setUserName(createUserRequestDTO.getUsername().trim());
+        ret.setUserName(createUserRequestDTO.getUserName().trim());
         ret.setPassword(password);
         ret.setEmail(createUserRequestDTO.getEmail());
         ret.setChangePassword(true);
         ret.setIsAdmin(createUserRequestDTO.getIsAdmin());
+        ret.setEmployee(employee);
         return ret;
     }
 

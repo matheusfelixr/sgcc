@@ -1,5 +1,6 @@
 package com.matheusfelixr.sgcc.controller;
 
+import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
 import com.matheusfelixr.sgcc.model.dto.MessageDTO;
 import com.matheusfelixr.sgcc.model.dto.config.ResponseApi;
 import com.matheusfelixr.sgcc.model.dto.security.*;
@@ -77,7 +78,9 @@ public class SecurityController {
 		LOGGER.debug("Inicio processo de criação de usuario.");
 		ResponseApi<MessageDTO> response = new ResponseApi<>();
 		try {
-			response.setData(this.securityService.createUser(createUserRequestDTO));
+			UserAuthentication currentUser = securityService.getCurrentUser();
+
+			response.setData(this.securityService.createUser(createUserRequestDTO, currentUser));
 			LOGGER.debug("Processo de criação de usuario realizado com sucesso.");
 			return ResponseEntity.ok(response);
 		} catch (ValidationException e) {
@@ -86,8 +89,8 @@ public class SecurityController {
 			return ResponseEntity.ok(response);
 		} catch (Exception e) {
 			e.printStackTrace();
-			LOGGER.error("Erro inesperado ao resetar a senha.");
-			List<String> errors = Arrays.asList("Erro inesperado ao resetar a senha.");
+			LOGGER.error("Erro inesperado ao criar usuário a senha.");
+			List<String> errors = Arrays.asList("Erro inesperado ao criar usuário.");
 			response.setErrors(errors);
 			return ResponseEntity.ok(response);
 		}
