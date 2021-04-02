@@ -31,6 +31,10 @@ public class UserAuthentication {
     @Column(name = "IS_ADMIN", nullable = false)
     private Boolean isAdmin;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "EMPLOYEE", referencedColumnName = "ID")
+    private Employee employee;
+
     public String[] getRoles() {
         return new String[]{"USER"};
     }
