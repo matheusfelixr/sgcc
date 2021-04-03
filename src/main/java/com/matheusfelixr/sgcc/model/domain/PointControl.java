@@ -25,6 +25,9 @@ public class PointControl {
     @Column(name = "NTP_DATE", nullable = true)
     private Date ntpDate;
 
+    @Column(name = "IP")
+    private String ip;
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "EMPLOYEE", referencedColumnName = "ID")
     private Employee employee;

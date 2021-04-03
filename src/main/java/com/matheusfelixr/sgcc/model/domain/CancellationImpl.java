@@ -31,9 +31,9 @@ public class CancellationImpl implements Serializable {
 
 	public boolean isCancelled() {
 		if(cancellationDate == null){
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 
