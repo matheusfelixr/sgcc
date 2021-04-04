@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.ValidationException;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
@@ -40,7 +38,7 @@ public class PointControlService {
         pointControl.setIp(httpServletRequest.getRemoteAddr());
         pointControl.setEmployee(currentUser.getEmployee());
 
-        if (this.itWasAnEntryLast()) {
+        if (this.itWasAnEntryLast(currentUser)) {
             pointControl.setControlAccessPoint(ControlAccessPointEnum.OUTPUT);
         }else{
             pointControl.setControlAccessPoint(ControlAccessPointEnum.INPUT);
@@ -59,9 +57,9 @@ public class PointControlService {
      *
      * @return
      */
-    public Boolean itWasAnEntryLast() {
+    public Boolean itWasAnEntryLast(UserAuthentication currentUser) {
 
-        List<PointControl> pointControlsToday = this.findByToDay();
+        List<PointControl> pointControlsToday = this.findByToDay(currentUser);
         PointControl lastPointControlByDate = new PointControl();
         if (!pointControlsToday.isEmpty()) {
             //adiciona o primeiro item ao lastPointControlByDate
@@ -89,10 +87,10 @@ public class PointControlService {
      *
      * @return
      */
-    public List<PointControl> findByToDay() {
+    public List<PointControl> findByToDay(UserAuthentication currentUser) {
         LocalDate today = LocalDate.now();
         Date date = Date.from(today.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-        return this.pointControlRepository.findByDateAfter(date);
+        return this.pointControlRepository.findByDateAfterAndEmployee(date, currentUser.getEmployee());
     }
 }
