@@ -2,6 +2,7 @@ package com.matheusfelixr.sgcc.filter;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.Filter;
@@ -14,9 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class CorsFilter implements Filter {
-	
-	private final List<String> allowedOrigins = Arrays.asList("*");
-	
+
+    private final List<String> allowedOrigins = Arrays.asList("*");
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -26,13 +27,12 @@ public class CorsFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpServletRequest request= (HttpServletRequest) servletRequest;
-        
-        String origin = request.getHeader("Origin");
-        
-        response.setHeader("Access-Control-Allow-Origin", allowedOrigins.contains(origin) ? origin : "");
+
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS");
         response.setHeader("Access-Control-Allow-Headers", "*");
-        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Credentials", "false");
         response.setHeader("Access-Control-Max-Age", "180");
         filterChain.doFilter(servletRequest, servletResponse);
     }
