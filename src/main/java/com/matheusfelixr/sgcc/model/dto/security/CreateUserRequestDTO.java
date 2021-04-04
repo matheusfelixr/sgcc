@@ -17,4 +17,6 @@ public class CreateUserRequestDTO {
 
 	private Boolean isAdmin;
 
+	private Long idOperation;
+
 }

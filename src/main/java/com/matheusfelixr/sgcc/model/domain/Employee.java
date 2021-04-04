@@ -19,6 +19,10 @@ public class Employee {
     @JoinColumn(name = "PERSON", referencedColumnName = "ID")
     private Person person;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "OPERATION", referencedColumnName = "ID")
+    private Operation operation;
+
     @Column(name = "ACTIVE")
     private Boolean active;
 

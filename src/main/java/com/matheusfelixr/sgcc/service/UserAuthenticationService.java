@@ -1,5 +1,6 @@
 package com.matheusfelixr.sgcc.service;
 
+import com.matheusfelixr.sgcc.model.domain.Employee;
 import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
 import com.matheusfelixr.sgcc.repository.UserAuthenticationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,5 +69,10 @@ public class UserAuthenticationService {
             throw new ValidationException("Usuário não encontrado");
         }
         return userResName.get();
+    }
+
+    public Optional<UserAuthentication> findByEmployee(Employee employee) {
+
+        return this.userAuthenticationRepository.findByEmployee(employee);
     }
 }
