@@ -31,11 +31,11 @@ public class SecurityController {
 	@PostMapping(value  = "/authenticate")
 	@ApiOperation(value = "Método responsável pela autenticação.")
 	public ResponseEntity<ResponseApi<AuthenticateResponseDTO>> authenticate(@RequestBody AuthenticateRequestDTO authenticateRequestDTO, HttpServletRequest httpServletRequest) throws Exception {
-		LOGGER.debug("Inicio processo de autenticacao.");
+		LOGGER.info("Inicio processo de autenticacao.");
 		ResponseApi<AuthenticateResponseDTO> response = new ResponseApi<>();
 		try {
 			response.setData(this.securityService.authenticate(authenticateRequestDTO,httpServletRequest ));
-			LOGGER.debug("Autenticacao realizada com sucesso.");
+			LOGGER.info("Autenticacao realizada com sucesso.");
 			return ResponseEntity.ok(response);
 		} catch (ValidationException e) {
 			LOGGER.error(e.getMessage());
@@ -53,11 +53,11 @@ public class SecurityController {
 	@PostMapping(value  = "/reset-password")
 	@ApiOperation(value = "Método responsável por reset de senha.")
 	public ResponseEntity<ResponseApi<MessageDTO>> resetPassword(@RequestBody ResetPasswordRequestDTO resetPasswordRequestDTO, HttpServletRequest httpServletRequest) throws Exception {
-		LOGGER.debug("Inicio processo de reset de senha.");
+		LOGGER.info("Inicio processo de reset de senha.");
 		ResponseApi<MessageDTO> response = new ResponseApi<>();
 		try {
 			response.setData(this.securityService.resetPassword(resetPasswordRequestDTO.getUsername().trim(),httpServletRequest));
-			LOGGER.debug("Reset de senha realizado com sucesso.");
+			LOGGER.info("Reset de senha realizado com sucesso.");
 			return ResponseEntity.ok(response);
 		} catch (ValidationException e) {
 			LOGGER.error(e.getMessage());
@@ -75,13 +75,13 @@ public class SecurityController {
 	@PostMapping(value  = "/create-user")
 	@ApiOperation(value = "Método responsável por reset de senha.")
 	public ResponseEntity<ResponseApi<MessageDTO>> createUser(@RequestBody CreateUserRequestDTO createUserRequestDTO) throws Exception {
-		LOGGER.debug("Inicio processo de criação de usuario.");
+		LOGGER.info("Inicio processo de criação de usuario.");
 		ResponseApi<MessageDTO> response = new ResponseApi<>();
 		try {
 			UserAuthentication currentUser = securityService.getCurrentUser();
 
 			response.setData(this.securityService.createUser(createUserRequestDTO, currentUser));
-			LOGGER.debug("Processo de criação de usuario realizado com sucesso.");
+			LOGGER.info("Processo de criação de usuario realizado com sucesso.");
 			return ResponseEntity.ok(response);
 		} catch (ValidationException e) {
 			LOGGER.error(e.getMessage());
@@ -99,11 +99,11 @@ public class SecurityController {
 	@PostMapping(value  = "/new-password")
 	@ApiOperation(value = "Método responsável por criar nova senha. Para usuarios que esteja com o campo para alterar senha.")
 	public ResponseEntity<ResponseApi<AuthenticateResponseDTO>> newPassword(@RequestBody NewPasswordRequestDTO newPasswordRequestDTO, HttpServletRequest httpServletRequest) throws Exception {
-		LOGGER.debug("Inicio processo de criação de nova senha.");
+		LOGGER.info("Inicio processo de criação de nova senha.");
 		ResponseApi<AuthenticateResponseDTO> response = new ResponseApi<>();
 		try {
 			response.setData(this.securityService.newPassword(newPasswordRequestDTO, httpServletRequest));
-			LOGGER.debug("Criação de nova senha realizada com sucesso.");
+			LOGGER.info("Criação de nova senha realizada com sucesso.");
 			return ResponseEntity.ok(response);
 		} catch (ValidationException e) {
 			LOGGER.error(e.getMessage());
