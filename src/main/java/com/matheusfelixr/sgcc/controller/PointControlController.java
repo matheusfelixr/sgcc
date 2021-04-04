@@ -3,6 +3,7 @@ package com.matheusfelixr.sgcc.controller;
 import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
 import com.matheusfelixr.sgcc.model.dto.MessageDTO;
 import com.matheusfelixr.sgcc.model.dto.config.ResponseApi;
+import com.matheusfelixr.sgcc.model.dto.pointControl.PointControlResponseHadEntry;
 import com.matheusfelixr.sgcc.service.PointControlService;
 import com.matheusfelixr.sgcc.service.SecurityService;
 import io.swagger.annotations.ApiOperation;
@@ -54,5 +55,33 @@ public class PointControlController {
             return ResponseEntity.ok(response);
         }
     }
+
+    @GetMapping(value = "/had-entry")
+    @ApiOperation(value = "Método responsável por verificar se já teve entrada de ponto no dia.")
+    public ResponseEntity<ResponseApi<PointControlResponseHadEntry>> hadEntry() throws Exception {
+        LOGGER.debug("Inicio processo de verificar se já teve entrada de ponto no dia.");
+        ResponseApi<PointControlResponseHadEntry> response = new ResponseApi<>();
+        try {
+            PointControlResponseHadEntry ret = new PointControlResponseHadEntry();
+            UserAuthentication currentUser = securityService.getCurrentUser();
+
+            ret.setHadEntry(this.pointControlService.itWasAnEntryLast(currentUser));
+
+            response.setData(ret);
+            LOGGER.debug("Verificação concluida se já teve entrada de ponto no dia.");
+            return ResponseEntity.ok(response);
+        } catch (ValidationException e) {
+            LOGGER.error(e.getMessage());
+            response.setErrors(Arrays.asList(e.getMessage()));
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            LOGGER.error("Erro inesperado ao verificar se já teve entrada de ponto no dia.");
+            List<String> errors = Arrays.asList("Erro inesperado ao verificar se já teve entrada de ponto no dia.");
+            response.setErrors(errors);
+            return ResponseEntity.ok(response);
+        }
+    }
+
 
 }
