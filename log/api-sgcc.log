@@ -59,3 +59,35 @@
 2021-04-04 16:32:33.040  INFO 624 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-04-04 16:32:33.040  INFO 624 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2021-04-04 16:32:33.042  INFO 624 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-04 17:05:43.625  INFO 332 --- [main] com.matheusfelixr.sgcc.SgccApplication   : Starting SgccApplication using Java 1.8.0_281 on DESKTOP-3NLB4H5 with PID 332 (C:\Users\guilh\Documents\GitHub\sgcc\target\classes started by guilh in C:\Users\guilh\Documents\GitHub\sgcc)
+2021-04-04 17:05:43.625  INFO 332 --- [main] com.matheusfelixr.sgcc.SgccApplication   : The following profiles are active: @activatedProperties@
+2021-04-04 17:05:44.765  INFO 332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-04 17:05:44.855  INFO 332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 7 JPA repository interfaces.
+2021-04-04 17:05:45.255  INFO 332 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4726927c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-04 17:05:45.262  INFO 332 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-04 17:05:45.759  INFO 332 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-04 17:05:45.769  INFO 332 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-04 17:05:45.769  INFO 332 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-04 17:05:45.933  INFO 332 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-04 17:05:45.933  INFO 332 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2238 ms
+2021-04-04 17:05:46.258  INFO 332 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-04 17:05:46.339  INFO 332 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
+2021-04-04 17:05:46.575  INFO 332 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-04 17:05:46.715  INFO 332 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-04 17:05:46.823  INFO 332 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-04 17:05:46.845  INFO 332 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-04 17:05:47.915  INFO 332 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-04 17:05:47.925  INFO 332 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-04 17:05:48.405  WARN 332 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-04 17:05:49.252  INFO 332 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12200670, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e26987b, org.springframework.security.web.header.HeaderWriterFilter@256a5df0, org.springframework.security.web.authentication.logout.LogoutFilter@1ac3a6f, com.matheusfelixr.sgcc.filter.JwtRequestFilter@7cdc4070, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39342614, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@73ae82da, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e80d5, com.matheusfelixr.sgcc.filter.CorsFilter@257b3561, org.springframework.security.web.session.SessionManagementFilter@4dd4965a, org.springframework.security.web.access.ExceptionTranslationFilter@5f9a8ddc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d271a54]
+2021-04-04 17:05:49.293  INFO 332 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-04 17:05:50.632  INFO 332 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-04 17:05:50.855  INFO 332 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-04 17:05:50.855  INFO 332 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-04 17:05:50.885  INFO 332 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-04 17:05:50.925  INFO 332 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-04 17:05:51.095  INFO 332 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: authenticateUsingPOST_1
+2021-04-04 17:05:51.130  INFO 332 --- [main] com.matheusfelixr.sgcc.SgccApplication   : Started SgccApplication in 8.015 seconds (JVM running for 8.624)
+2021-04-04 17:05:57.035  INFO 332 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-04 17:05:57.035  INFO 332 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-04 17:05:57.037  INFO 332 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
