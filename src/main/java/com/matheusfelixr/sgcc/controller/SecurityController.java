@@ -42,6 +42,7 @@ public class SecurityController {
 			response.setErrors(Arrays.asList(e.getMessage()));
 			return ResponseEntity.ok(response);
 		} catch (Exception e) {
+			LOGGER.info(e.getMessage());
 			e.printStackTrace();
 			LOGGER.error("Erro inesperado ao tentar autenticar");
 			List<String> errors = Arrays.asList("Erro inesperado ao tentar autenticar");

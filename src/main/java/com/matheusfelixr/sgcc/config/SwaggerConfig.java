@@ -85,17 +85,7 @@ public class SwaggerConfig {
 
             UserAuthentication userAuthentication = new UserAuthentication();
             String password= "123456";
-
-            if(!userSystem.isPresent()){
-                UserAuthentication ret = new UserAuthentication();
-
-                ret.setUserName("System");
-                ret.setPassword(password);
-                ret.setEmail("System@AdminSystem.com");
-                ret.setChangePassword(false);
-                ret.setIsAdmin(true);
-                userAuthenticationService.create(ret);
-            }
+            
             if (!user.isPresent()) {
                 UserAuthentication ret = new UserAuthentication();
 

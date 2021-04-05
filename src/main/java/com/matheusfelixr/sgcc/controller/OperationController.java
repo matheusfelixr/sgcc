@@ -53,6 +53,7 @@ public class OperationController {
 			response.setErrors(Arrays.asList(e.getMessage()));
 			return ResponseEntity.ok(response);
 		} catch (Exception e) {
+			LOGGER.info(e.getMessage());
 			e.printStackTrace();
 			LOGGER.error("Erro inesperado ao criar operação");
 			List<String> errors = Arrays.asList("Erro inesperado ao criar operação");
