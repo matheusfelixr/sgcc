@@ -3,6 +3,7 @@ package com.matheusfelixr.sgcc.model.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Locale;
 
 @Data
 @Entity
@@ -53,5 +54,9 @@ public class UserAuthentication {
             cancellation = new CancellationImpl();
         }
         return cancellation;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName.toLowerCase(Locale.ROOT);
     }
 }

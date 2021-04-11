@@ -46,7 +46,7 @@ public class HistoryAuthenticationService {
     }
 
     private UserAuthentication getUser(AuthenticateRequestDTO authenticateRequestDTO) {
-        Optional<UserAuthentication> userAuthentication = userAuthenticationService.findByUserName(authenticateRequestDTO.getUsername());
+        Optional<UserAuthentication> userAuthentication = userAuthenticationService.findByUserName(authenticateRequestDTO.getUserName());
         if(userAuthentication.isPresent()){
             return userAuthentication.get();
         }

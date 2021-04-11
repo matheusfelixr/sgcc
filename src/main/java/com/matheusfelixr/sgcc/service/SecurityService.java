@@ -26,6 +26,7 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.ValidationException;
+import java.util.Locale;
 import java.util.Optional;
 
 @Component
@@ -78,33 +79,33 @@ public class SecurityService implements UserDetailsService {
             //valida autenticacao
             this.validateAuthenticate(authenticateRequestDTO);
             //Autentica o usuario
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticateRequestDTO.getUsername(), authenticateRequestDTO.getPassword()));
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticateRequestDTO.getUserName(), authenticateRequestDTO.getPassword()));
             //Busca o userDetails para geracao do token
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername(authenticateRequestDTO.getUsername());
+            UserDetails userDetails = this.userDetailsService.loadUserByUsername(authenticateRequestDTO.getUserName());
             //Gera o token
             String token = jwtTokenUtil.generateToken(userDetails);
             //Busca os dados do usuario
-            UserAuthentication userAuthentication = this.userAuthenticationService.findByUserName(authenticateRequestDTO.getUsername()).get();
+            UserAuthentication userAuthentication = this.userAuthenticationService.findByUserName(authenticateRequestDTO.getUserName()).get();
             //Gera historico
             historyAuthenticationService.generateHistorySuccess(userAuthentication, httpServletRequest );
             return new AuthenticateResponseDTO(userAuthentication.getUserName(), token,userAuthentication.getChangePassword(), userAuthentication.getIsAdmin());
         } catch (DisabledException e) {
-            historyAuthenticationService.generateHistoryFail(authenticateRequestDTO, httpServletRequest, "Usuário desabilitado: " + authenticateRequestDTO.getUsername());
+            historyAuthenticationService.generateHistoryFail(authenticateRequestDTO, httpServletRequest, "Usuário desabilitado: " + authenticateRequestDTO.getUserName());
             throw new ValidationException("Usuário desabilitado");
         } catch (BadCredentialsException e) {
-            historyAuthenticationService.generateHistoryFail(authenticateRequestDTO, httpServletRequest, "Senha invalida para o usuário: " + authenticateRequestDTO.getUsername());
+            historyAuthenticationService.generateHistoryFail(authenticateRequestDTO, httpServletRequest, "Senha invalida para o usuário: " + authenticateRequestDTO.getUserName());
             throw new ValidationException("Verifique se digitou corretamente usuário e senha.");
         }
     }
 
     private void validateAuthenticate(AuthenticateRequestDTO authenticateRequestDTO) throws ValidationException {
-        if(authenticateRequestDTO.getUsername() == null || authenticateRequestDTO.getUsername().length() == 0 ){
+        if(authenticateRequestDTO.getUserName() == null || authenticateRequestDTO.getUserName().length() == 0 ){
             throw new ValidationException("Usuário não pode ser vazio");
         }
-        if(authenticateRequestDTO.getPassword() == null || authenticateRequestDTO.getUsername().length() == 0 ){
+        if(authenticateRequestDTO.getPassword() == null || authenticateRequestDTO.getUserName().length() == 0 ){
             throw new ValidationException("Senha não pode ser vazio");
         }
-        authenticateRequestDTO.setUsername(authenticateRequestDTO.getUsername().trim());
+        authenticateRequestDTO.setUserName(authenticateRequestDTO.getUserName().trim().toLowerCase(Locale.ROOT));
     }
 
     public MessageDTO resetPassword(String userName, HttpServletRequest httpServletRequest) throws Exception {

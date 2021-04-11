@@ -57,7 +57,7 @@ public class SecurityController {
 		LOGGER.info("Inicio processo de reset de senha.");
 		ResponseApi<MessageDTO> response = new ResponseApi<>();
 		try {
-			response.setData(this.securityService.resetPassword(resetPasswordRequestDTO.getUsername().trim(),httpServletRequest));
+			response.setData(this.securityService.resetPassword(resetPasswordRequestDTO.getUserName().trim(),httpServletRequest));
 			LOGGER.info("Reset de senha realizado com sucesso.");
 			return ResponseEntity.ok(response);
 		} catch (ValidationException e) {
