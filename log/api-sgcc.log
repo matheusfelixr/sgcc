@@ -1,93 +1,130 @@
-2021-04-04 16:30:32.273  INFO 512 --- [main] com.matheusfelixr.sgcc.SgccApplication   : Starting SgccApplication using Java 1.8.0_191 on DESKTOP-83GQDVO with PID 512 (D:\projetos\estudo\git\sgcc\target\classes started by mathe in D:\projetos\estudo\git\sgcc)
-2021-04-04 16:30:32.278  INFO 512 --- [main] com.matheusfelixr.sgcc.SgccApplication   : The following profiles are active: @activatedProperties@
-2021-04-04 16:30:33.941  INFO 512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-04-04 16:30:34.082  INFO 512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 127 ms. Found 7 JPA repository interfaces.
-2021-04-04 16:30:34.803  INFO 512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5b9499fe' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-04-04 16:30:34.812  INFO 512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-04-04 16:30:36.205  INFO 512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-04-04 16:30:36.231  INFO 512 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-04-04 16:30:36.232  INFO 512 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2021-04-04 16:30:36.445  INFO 512 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-04-04 16:30:36.445  INFO 512 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4061 ms
-2021-04-04 16:30:36.993  INFO 512 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-04-04 16:30:37.267  INFO 512 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
-2021-04-04 16:30:37.582  INFO 512 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-04-04 16:30:37.882  INFO 512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-04-04 16:30:38.127  INFO 512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-04-04 16:30:38.170  INFO 512 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2021-04-04 16:30:40.561  INFO 512 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-04-04 16:30:40.577  INFO 512 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-04-04 16:30:41.481  WARN 512 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-04-04 16:30:43.071  INFO 512 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f53295e, org.springframework.security.web.context.SecurityContextPersistenceFilter@524418a2, org.springframework.security.web.header.HeaderWriterFilter@29f114e0, org.springframework.security.web.authentication.logout.LogoutFilter@758ac46, com.matheusfelixr.sgcc.filter.JwtRequestFilter@3fc14dc0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67062a93, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@202fd4c4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f8a29ca, com.matheusfelixr.sgcc.filter.CorsFilter@4f93a8f6, org.springframework.security.web.session.SessionManagementFilter@3b7dd173, org.springframework.security.web.access.ExceptionTranslationFilter@6484364f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ae90cb9]
-2021-04-04 16:30:43.138  INFO 512 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-04-04 16:30:45.339  INFO 512 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-04-04 16:30:46.035  INFO 512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-04-04 16:30:46.038  INFO 512 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-04-04 16:30:46.099  INFO 512 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-04-04 16:30:46.195  INFO 512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-04-04 16:30:47.022  INFO 512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: authenticateUsingPOST_1
-2021-04-04 16:30:47.156  INFO 512 --- [main] com.matheusfelixr.sgcc.SgccApplication   : Started SgccApplication in 15.575 seconds (JVM running for 16.222)
-2021-04-04 16:32:11.901  INFO 624 --- [main] com.matheusfelixr.sgcc.SgccApplication   : Starting SgccApplication using Java 1.8.0_191 on DESKTOP-83GQDVO with PID 624 (D:\projetos\estudo\git\sgcc\target\classes started by mathe in D:\projetos\estudo\git\sgcc)
-2021-04-04 16:32:11.907  INFO 624 --- [main] com.matheusfelixr.sgcc.SgccApplication   : The following profiles are active: @activatedProperties@
-2021-04-04 16:32:13.201  INFO 624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-04-04 16:32:13.330  INFO 624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 117 ms. Found 7 JPA repository interfaces.
-2021-04-04 16:32:14.069  INFO 624 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@176555c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-04-04 16:32:14.080  INFO 624 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-04-04 16:32:15.043  INFO 624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-04-04 16:32:15.065  INFO 624 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-04-04 16:32:15.066  INFO 624 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2021-04-04 16:32:15.230  INFO 624 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-04-04 16:32:15.231  INFO 624 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3231 ms
-2021-04-04 16:32:15.678  INFO 624 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-04-04 16:32:15.909  INFO 624 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
-2021-04-04 16:32:16.209  INFO 624 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-04-04 16:32:16.484  INFO 624 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-04-04 16:32:16.707  INFO 624 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-04-04 16:32:16.747  INFO 624 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2021-04-04 16:32:18.931  INFO 624 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-04-04 16:32:18.944  INFO 624 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-04-04 16:32:19.811  WARN 624 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-04-04 16:32:21.389  INFO 624 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@507fecf3, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b625e82, org.springframework.security.web.header.HeaderWriterFilter@63541cd4, org.springframework.security.web.authentication.logout.LogoutFilter@55a5eea3, com.matheusfelixr.sgcc.filter.JwtRequestFilter@c414eb3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58b30e3e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35a2ea5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3f1d4ecf, com.matheusfelixr.sgcc.filter.CorsFilter@6bbac73d, org.springframework.security.web.session.SessionManagementFilter@5ef48b08, org.springframework.security.web.access.ExceptionTranslationFilter@5ce0f50a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3c1d6ef0]
-2021-04-04 16:32:21.464  INFO 624 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-04-04 16:32:29.584  INFO 624 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-04-04 16:32:29.908  INFO 624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-04-04 16:32:29.909  INFO 624 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-04-04 16:32:29.946  INFO 624 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-04-04 16:32:29.988  INFO 624 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-04-04 16:32:30.182  INFO 624 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: authenticateUsingPOST_1
-2021-04-04 16:32:30.223  INFO 624 --- [main] com.matheusfelixr.sgcc.SgccApplication   : Started SgccApplication in 18.999 seconds (JVM running for 19.698)
-2021-04-04 16:32:33.040  INFO 624 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-04-04 16:32:33.040  INFO 624 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-04-04 16:32:33.042  INFO 624 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-04-04 17:05:43.625  INFO 332 --- [main] com.matheusfelixr.sgcc.SgccApplication   : Starting SgccApplication using Java 1.8.0_281 on DESKTOP-3NLB4H5 with PID 332 (C:\Users\guilh\Documents\GitHub\sgcc\target\classes started by guilh in C:\Users\guilh\Documents\GitHub\sgcc)
-2021-04-04 17:05:43.625  INFO 332 --- [main] com.matheusfelixr.sgcc.SgccApplication   : The following profiles are active: @activatedProperties@
-2021-04-04 17:05:44.765  INFO 332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-04-04 17:05:44.855  INFO 332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 7 JPA repository interfaces.
-2021-04-04 17:05:45.255  INFO 332 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4726927c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-04-04 17:05:45.262  INFO 332 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-04-04 17:05:45.759  INFO 332 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-04-04 17:05:45.769  INFO 332 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-04-04 17:05:45.769  INFO 332 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
-2021-04-04 17:05:45.933  INFO 332 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-04-04 17:05:45.933  INFO 332 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2238 ms
-2021-04-04 17:05:46.258  INFO 332 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-04-04 17:05:46.339  INFO 332 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
-2021-04-04 17:05:46.575  INFO 332 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-04-04 17:05:46.715  INFO 332 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-04-04 17:05:46.823  INFO 332 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-04-04 17:05:46.845  INFO 332 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2021-04-04 17:05:47.915  INFO 332 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-04-04 17:05:47.925  INFO 332 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-04-04 17:05:48.405  WARN 332 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-04-04 17:05:49.252  INFO 332 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12200670, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e26987b, org.springframework.security.web.header.HeaderWriterFilter@256a5df0, org.springframework.security.web.authentication.logout.LogoutFilter@1ac3a6f, com.matheusfelixr.sgcc.filter.JwtRequestFilter@7cdc4070, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39342614, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@73ae82da, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e80d5, com.matheusfelixr.sgcc.filter.CorsFilter@257b3561, org.springframework.security.web.session.SessionManagementFilter@4dd4965a, org.springframework.security.web.access.ExceptionTranslationFilter@5f9a8ddc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d271a54]
-2021-04-04 17:05:49.293  INFO 332 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-04-04 17:05:50.632  INFO 332 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-04-04 17:05:50.855  INFO 332 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-04-04 17:05:50.855  INFO 332 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-04-04 17:05:50.885  INFO 332 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-04-04 17:05:50.925  INFO 332 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-04-04 17:05:51.095  INFO 332 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: authenticateUsingPOST_1
-2021-04-04 17:05:51.130  INFO 332 --- [main] com.matheusfelixr.sgcc.SgccApplication   : Started SgccApplication in 8.015 seconds (JVM running for 8.624)
-2021-04-04 17:05:57.035  INFO 332 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-04-04 17:05:57.035  INFO 332 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-04-04 17:05:57.037  INFO 332 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-04-13 12:46:48.990 ERROR 3740 --- [http-nio-8080-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:235) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.1.jar:0.9.1]
+	at com.matheusfelixr.sgcc.security.JwtTokenUtil.getAllClaimsFromToken(JwtTokenUtil.java:49) ~[classes/:na]
+	at com.matheusfelixr.sgcc.security.JwtTokenUtil.getClaimFromToken(JwtTokenUtil.java:43) ~[classes/:na]
+	at com.matheusfelixr.sgcc.security.JwtTokenUtil.getUsernameFromToken(JwtTokenUtil.java:32) ~[classes/:na]
+	at com.matheusfelixr.sgcc.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:45) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_191]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_191]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_191]
+
+2021-04-13 12:49:12.413  INFO 3740 --- [http-nio-8080-exec-1] c.m.sgcc.controller.SecurityController   : Inicio processo de autenticacao.
+2021-04-13 12:49:12.566  INFO 3740 --- [http-nio-8080-exec-1] c.m.sgcc.controller.SecurityController   : Autenticacao realizada com sucesso.
+2021-04-11 12:50:00.945  INFO 3740 --- [http-nio-8080-exec-2] c.m.sgcc.controller.SecurityController   : Inicio processo de autenticacao.
+2021-04-11 12:50:01.121  INFO 3740 --- [http-nio-8080-exec-2] c.m.sgcc.controller.SecurityController   : Autenticacao realizada com sucesso.
+2021-04-11 12:50:18.318  INFO 3740 --- [http-nio-8080-exec-6] c.m.sgcc.controller.SecurityController   : Inicio processo de autenticacao.
+2021-04-11 12:50:18.465  INFO 3740 --- [http-nio-8080-exec-6] c.m.sgcc.controller.SecurityController   : Autenticacao realizada com sucesso.
+2021-04-12 12:50:50.595 ERROR 3740 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:235) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.1.jar:0.9.1]
+	at com.matheusfelixr.sgcc.security.JwtTokenUtil.getAllClaimsFromToken(JwtTokenUtil.java:49) ~[classes/:na]
+	at com.matheusfelixr.sgcc.security.JwtTokenUtil.getClaimFromToken(JwtTokenUtil.java:43) ~[classes/:na]
+	at com.matheusfelixr.sgcc.security.JwtTokenUtil.getUsernameFromToken(JwtTokenUtil.java:32) ~[classes/:na]
+	at com.matheusfelixr.sgcc.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:45) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_191]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_191]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_191]
+
+2021-04-11 12:55:34.981  INFO 3740 --- [http-nio-8080-exec-6] c.m.sgcc.controller.SecurityController   : Inicio processo de autenticacao.
+2021-04-11 12:55:35.143  INFO 3740 --- [http-nio-8080-exec-6] c.m.sgcc.controller.SecurityController   : Autenticacao realizada com sucesso.
+2021-04-11 12:55:40.833  INFO 3740 --- [http-nio-8080-exec-1] c.m.sgcc.controller.SecurityController   : Inicio processo de autenticacao.
+2021-04-11 12:55:40.976  INFO 3740 --- [http-nio-8080-exec-1] c.m.sgcc.controller.SecurityController   : Autenticacao realizada com sucesso.

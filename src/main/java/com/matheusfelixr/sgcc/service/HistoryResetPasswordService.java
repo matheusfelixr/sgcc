@@ -1,9 +1,7 @@
 package com.matheusfelixr.sgcc.service;
 
-import com.matheusfelixr.sgcc.model.domain.HistoryAuthentication;
 import com.matheusfelixr.sgcc.model.domain.HistoryResetPassword;
 import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
-import com.matheusfelixr.sgcc.repository.HistoryAuthenticationRepository;
 import com.matheusfelixr.sgcc.repository.HistoryResetPasswordRepository;
 import com.matheusfelixr.sgcc.util.DateNtp;
 import org.springframework.beans.factory.annotation.Autowired;
