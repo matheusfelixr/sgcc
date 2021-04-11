@@ -2,6 +2,7 @@ package com.matheusfelixr.sgcc.service;
 
 import com.matheusfelixr.sgcc.model.domain.Employee;
 import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
+import com.matheusfelixr.sgcc.model.dto.MessageDTO;
 import com.matheusfelixr.sgcc.repository.UserAuthenticationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,9 +31,13 @@ public class UserAuthenticationService {
         String password = userAuthentication.getPassword();
         userAuthentication.setPassword(this.passwordEncoder.encode(password));
 
-        UserAuthentication ret = userAuthenticationRepository.save(userAuthentication);
+        UserAuthentication ret = this.save(userAuthentication);
         emailService.newUser(userAuthentication, password);
         return ret;
+    }
+
+    private UserAuthentication save(UserAuthentication userAuthentication) {
+        return this.userAuthenticationRepository.save(userAuthentication);
     }
 
     public Optional<UserAuthentication> findByUserName(String userName){
@@ -74,5 +79,33 @@ public class UserAuthenticationService {
     public Optional<UserAuthentication> findByEmployee(Employee employee) {
 
         return this.userAuthenticationRepository.findByEmployee(employee);
+    }
+
+    public MessageDTO cancel(Long idUser, String observation, UserAuthentication currentUser) throws Exception{
+        Optional<UserAuthentication> userAuthentication = this.findById(idUser);
+        userAuthentication.orElseThrow(()-> new ValidationException("Não foi encontrado usuário."));
+
+        userAuthentication.get().getCancellation().markCanceled(observation, currentUser);
+        userAuthentication.get().getEmployee().getDataControl().markModified(currentUser);
+        userAuthentication.get().getEmployee().getPerson().getDataControl().markModified(currentUser);
+        this.save(userAuthentication.get());
+
+        return new MessageDTO("Sucesso ao realizar cancelamento de usuário.");
+    }
+
+    public Optional<UserAuthentication> findById(Long idUser) {
+        return this.userAuthenticationRepository.findById(idUser);
+    }
+
+    public MessageDTO removeCancel(Long idUser, UserAuthentication currentUser) throws Exception {
+        Optional<UserAuthentication> userAuthentication = this.findById(idUser);
+        userAuthentication.orElseThrow(()-> new ValidationException("Não foi encontrado usuário."));
+
+        userAuthentication.get().getCancellation().removeCanceled();
+        userAuthentication.get().getEmployee().getDataControl().markModified(currentUser);
+        userAuthentication.get().getEmployee().getPerson().getDataControl().markModified(currentUser);
+        this.save(userAuthentication.get());
+
+        return new MessageDTO("Cancelamento removido com sucesso.");
     }
 }

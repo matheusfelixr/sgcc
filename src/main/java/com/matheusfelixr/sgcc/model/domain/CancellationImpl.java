@@ -35,6 +35,12 @@ public class CancellationImpl implements Serializable {
 		}
 		return true;
 	}
+	public void removeCanceled() {
+		this.setCancellationDate(null);
+		this.setCancellationObservation(null);
+		this.setCancellationUser(null);
+	}
+
 
 
 }
