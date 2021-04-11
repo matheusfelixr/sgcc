@@ -1,6 +1,5 @@
 package com.matheusfelixr.sgcc.model.domain;
 
-import com.matheusfelixr.sgcc.model.domain.CancellationImpl;
 import lombok.Data;
 
 import javax.persistence.*;

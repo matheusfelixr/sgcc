@@ -1,7 +1,7 @@
 package com.matheusfelixr.sgcc.config;
 
-import com.matheusfelixr.sgcc.model.dto.security.AuthenticateRequestDTO;
 import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
+import com.matheusfelixr.sgcc.model.dto.security.AuthenticateRequestDTO;
 import com.matheusfelixr.sgcc.security.JwtTokenUtil;
 import com.matheusfelixr.sgcc.service.SecurityService;
 import com.matheusfelixr.sgcc.service.UserAuthenticationService;

@@ -2,11 +2,9 @@ package com.matheusfelixr.sgcc.controller;
 
 import com.matheusfelixr.sgcc.model.domain.Operation;
 import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
-import com.matheusfelixr.sgcc.model.dto.MessageDTO;
 import com.matheusfelixr.sgcc.model.dto.config.ResponseApi;
 import com.matheusfelixr.sgcc.model.dto.operation.CreateOperationDTO;
 import com.matheusfelixr.sgcc.model.dto.operation.OperationDTO;
-import com.matheusfelixr.sgcc.model.dto.security.*;
 import com.matheusfelixr.sgcc.service.OperationService;
 import com.matheusfelixr.sgcc.service.SecurityService;
 import io.swagger.annotations.ApiOperation;
@@ -14,10 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.ValidationException;
 import java.util.Arrays;
 import java.util.List;

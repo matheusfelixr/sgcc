@@ -1,8 +1,6 @@
 package com.matheusfelixr.sgcc.model.dto.operation;
 
 import com.matheusfelixr.sgcc.model.domain.Operation;
-import com.matheusfelixr.sgcc.model.dto.cancellation.CancellationDTO;
-import com.matheusfelixr.sgcc.model.dto.dataControl.DataControlDTO;
 import lombok.Data;
 
 import java.util.ArrayList;

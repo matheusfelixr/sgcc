@@ -1,9 +1,9 @@
 package com.matheusfelixr.sgcc.model.dto.config;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import lombok.Data;
 
 @Data
 public class ResponseApi<T> {
