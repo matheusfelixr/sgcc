@@ -3,7 +3,9 @@ package com.matheusfelixr.sgcc.model.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Locale;
+
 
 @Data
 @Entity
@@ -22,6 +24,7 @@ public class UserAuthentication {
     @Column(name = "PASSWORD", nullable = false)
     private String password;
 
+    @Email
     @Column(name = "EMAIL", nullable = false, unique = true)
     private String email;
 

@@ -2,6 +2,8 @@ package com.matheusfelixr.sgcc.model.dto.security;
 
 import lombok.Data;
 
+import javax.validation.constraints.Email;
+
 @Data
 public class CreateUserRequestDTO {
 
@@ -11,6 +13,7 @@ public class CreateUserRequestDTO {
 
 	private String cpf;
 
+	@Email
 	private String email;
 
 	private String password;

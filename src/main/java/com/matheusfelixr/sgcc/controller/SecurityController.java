@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailSendException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -87,6 +88,12 @@ public class SecurityController {
 		} catch (ValidationException e) {
 			LOGGER.error(e.getMessage());
 			response.setErrors(Arrays.asList(e.getMessage()));
+			return ResponseEntity.ok(response);
+		} catch (MailSendException e) {
+			e.printStackTrace();
+			LOGGER.error("Erro inesperado ao enviar email com a senha.\n" + e.getMessage()+"\n"+ e.getCause());
+			List<String> errors = Arrays.asList("Erro inesperado ao enviar email com a senha.");
+			response.setErrors(errors);
 			return ResponseEntity.ok(response);
 		} catch (Exception e) {
 			e.printStackTrace();
