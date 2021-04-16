@@ -87,6 +87,10 @@ public class EmployeeService {
         return this.employeeRepository.findByPersonCpf(createUserRequestDTO.getCpf());
     }
 
+    public Optional<Employee> findByPerson(Person person) {
+        return this.employeeRepository.findByPerson(person);
+    }
+
     private Optional<Employee> findById(Long idEmployee) {
         return this.employeeRepository.findById(idEmployee);
     }

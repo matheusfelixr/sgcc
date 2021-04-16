@@ -1,5 +1,6 @@
 package com.matheusfelixr.sgcc.service;
 
+import com.matheusfelixr.sgcc.model.domain.Employee;
 import com.matheusfelixr.sgcc.model.domain.Operation;
 import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
 import com.matheusfelixr.sgcc.repository.OperationRepository;
@@ -26,5 +27,9 @@ public class OperationService {
 
     public Optional<Operation> findById(Long idOperation) throws Exception {
         return this.operationRepository.findById(idOperation);
+    }
+
+    public Optional<Operation> findByEmployee(Employee employee) throws Exception {
+        return this.operationRepository.findByEmployee(employee);
     }
 }
