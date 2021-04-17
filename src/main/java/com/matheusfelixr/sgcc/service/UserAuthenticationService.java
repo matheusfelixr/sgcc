@@ -91,11 +91,10 @@ public class UserAuthenticationService {
         if(persons.get().size() == 1){
             Person person = persons.get().get(0);
             Optional<Employee> employee = this.employeeService.findByPerson(person);
-            Optional<Operation> operation = this.operationService.findByEmployee(employee.get());
             Optional<UserAuthentication> userAuthentication = this.findByEmployee(employee.get());
 
             AllUserAtributesDTO allUserAtributesDTO = new AllUserAtributesDTO(UserAuthenticationDTO.convertToDTO(userAuthentication.get()),
-                    PersonDTO.convertToDTO(person), EmployeeDTO.convertToDTO(employee.get()), OperationDTO.convertToDTO(operation.get()));
+                    PersonDTO.convertToDTO(person), EmployeeDTO.convertToDTO(employee.get()));
 
             return allUserAtributesDTO;
         }else{

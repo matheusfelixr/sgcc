@@ -10,5 +10,4 @@ import java.util.Optional;
 @Repository
 public interface OperationRepository extends JpaRepository<Operation, Long>  {
 
-    Optional<Operation> findByEmployee(Employee employee);
 }

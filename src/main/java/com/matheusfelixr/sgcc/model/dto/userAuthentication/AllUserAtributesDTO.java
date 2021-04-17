@@ -16,12 +16,9 @@ public class AllUserAtributesDTO {
 
     private EmployeeDTO employee;
 
-    private OperationDTO operation;
-
-    public AllUserAtributesDTO(UserAuthenticationDTO userAuthentication, PersonDTO person, EmployeeDTO employee, OperationDTO operation) {
+    public AllUserAtributesDTO(UserAuthenticationDTO userAuthentication, PersonDTO person, EmployeeDTO employee) {
         this.userAuthentication = userAuthentication;
         this.person = person;
         this.employee = employee;
-        this.operation = operation;
     }
 }

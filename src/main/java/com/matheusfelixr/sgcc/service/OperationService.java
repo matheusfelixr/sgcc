@@ -28,8 +28,4 @@ public class OperationService {
     public Optional<Operation> findById(Long idOperation) throws Exception {
         return this.operationRepository.findById(idOperation);
     }
-
-    public Optional<Operation> findByEmployee(Employee employee) throws Exception {
-        return this.operationRepository.findByEmployee(employee);
-    }
 }
