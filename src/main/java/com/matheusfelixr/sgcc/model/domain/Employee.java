@@ -26,6 +26,9 @@ public class Employee {
     @Column(name = "ACTIVE")
     private Boolean active;
 
+    @Column(name = "ID_EMPLOYEE_WISE_CALL")
+    private Long idEmployeeWiseCall;
+
     @Embedded
     private DataControlImpl dataControl;
 

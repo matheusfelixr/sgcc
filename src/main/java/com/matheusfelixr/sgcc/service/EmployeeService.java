@@ -64,6 +64,7 @@ public class EmployeeService {
         employee.setPerson(person);
         employee.getDataControl().markCreate(currentUser);
         employee.setOperation(operation.get());
+        employee.setIdEmployeeWiseCall(createUserRequestDTO.getIdEmployeeWiseCall());
 
         return employee;
     }

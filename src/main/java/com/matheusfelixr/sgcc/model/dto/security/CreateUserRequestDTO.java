@@ -22,4 +22,6 @@ public class CreateUserRequestDTO {
 
 	private Long idOperation;
 
+	private Long idEmployeeWiseCall;
+
 }
