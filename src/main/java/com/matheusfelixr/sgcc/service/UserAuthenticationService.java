@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.xml.bind.ValidationException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -158,5 +159,9 @@ public class UserAuthenticationService {
 
         this.save(userAuthentication.get());
         return new MessageDTO("Sucesso ao editar usuario.");
+    }
+
+    public List<UserAuthentication> findAll() throws Exception {
+        return this.userAuthenticationRepository.findAll();
     }
 }

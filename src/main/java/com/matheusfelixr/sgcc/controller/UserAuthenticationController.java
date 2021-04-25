@@ -132,4 +132,27 @@ public class UserAuthenticationController {
 			return ResponseEntity.ok(response);
 		}
 	}
+
+	@GetMapping(value  = "/find-all")
+	@ApiOperation(value = "Método responsável por buscar todos usuarios.")
+	public ResponseEntity<ResponseApi<List<liteUserAuthenticationDTO>>> findAll(){
+		LOGGER.info("Inicio processo de buscar todos usuarios");
+		ResponseApi<List<liteUserAuthenticationDTO>> response = new ResponseApi<>();
+		try {
+			response.setData(liteUserAuthenticationDTO.convertToListDTO(this.userAuthenticationService.findAll()));
+			LOGGER.info("Sucesso ao buscar todos usuarios.");
+			return ResponseEntity.ok(response);
+		} catch (ValidationException e) {
+			LOGGER.error(e.getMessage());
+			response.setErrors(Arrays.asList(e.getMessage()));
+			return ResponseEntity.ok(response);
+		} catch (Exception e) {
+			LOGGER.info(e.getMessage());
+			e.printStackTrace();
+			LOGGER.error("Erro inesperado ao buscar todos usuarios");
+			List<String> errors = Arrays.asList("Erro inesperado ao buscar todos usuarios");
+			response.setErrors(errors);
+			return ResponseEntity.ok(response);
+		}
+	}
 }
