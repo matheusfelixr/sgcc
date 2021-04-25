@@ -3,10 +3,7 @@ package com.matheusfelixr.sgcc.service;
 import com.matheusfelixr.sgcc.model.domain.Employee;
 import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
 import com.matheusfelixr.sgcc.model.dto.MessageDTO;
-import com.matheusfelixr.sgcc.model.dto.security.AuthenticateRequestDTO;
-import com.matheusfelixr.sgcc.model.dto.security.AuthenticateResponseDTO;
-import com.matheusfelixr.sgcc.model.dto.security.CreateUserRequestDTO;
-import com.matheusfelixr.sgcc.model.dto.security.NewPasswordRequestDTO;
+import com.matheusfelixr.sgcc.model.dto.security.*;
 import com.matheusfelixr.sgcc.security.JwtTokenUtil;
 import com.matheusfelixr.sgcc.util.EmailHelper;
 import com.matheusfelixr.sgcc.util.Password;
@@ -110,7 +107,7 @@ public class SecurityService implements UserDetailsService {
 
     public MessageDTO resetPassword(String userName, HttpServletRequest httpServletRequest) throws Exception {
         String password = Password.generatePasswordInt(5);
-        UserAuthentication userAuthentication = userAuthenticationService.modifyPassword(userName, password , true);
+        UserAuthentication userAuthentication = userAuthenticationService.modifyPassword(userName, password , true, null);
         emailService.resetPassword(userAuthentication, password);
         historyResetPasswordService.generateHistory(userAuthentication, httpServletRequest);
         return new MessageDTO ("Foi enviado uma nova senha para o E-mail: "+EmailHelper.maskEmail(userAuthentication.getEmail()));
@@ -124,7 +121,7 @@ public class SecurityService implements UserDetailsService {
         Employee employee = this.employeeService.create(createUserRequestDTO, currentUser);
 
         //Cria objeto a ser salvo
-        UserAuthentication ret = this.getUserAuthentication(createUserRequestDTO, password, employee);
+        UserAuthentication ret = this.getUserAuthentication(createUserRequestDTO, password, employee, currentUser);
 
         //chama metodo para criar usario
         this.userAuthenticationService.create(ret);
@@ -132,7 +129,7 @@ public class SecurityService implements UserDetailsService {
         return new MessageDTO ("Usuário cadastrado com sucesso! Foi enviada a senha para o E-mail: " + EmailHelper.maskEmail(ret.getEmail()));
     }
 
-    private UserAuthentication getUserAuthentication(CreateUserRequestDTO createUserRequestDTO, String password, Employee employee) {
+    private UserAuthentication getUserAuthentication(CreateUserRequestDTO createUserRequestDTO, String password, Employee employee, UserAuthentication currentUser) {
         UserAuthentication ret = new UserAuthentication();
         ret.setUserName(createUserRequestDTO.getUserName().trim());
         ret.setPassword(password);
@@ -140,6 +137,7 @@ public class SecurityService implements UserDetailsService {
         ret.setChangePassword(true);
         ret.setIsAdmin(createUserRequestDTO.getIsAdmin());
         ret.setEmployee(employee);
+        ret.getDataControl().markCreate(currentUser);
         return ret;
     }
 
@@ -154,7 +152,7 @@ public class SecurityService implements UserDetailsService {
     }
 
     public AuthenticateResponseDTO newPassword(NewPasswordRequestDTO newPasswordRequestDTO, HttpServletRequest httpServletRequest) throws Exception {
-        UserAuthentication userAuthentication = userAuthenticationService.modifyPassword(newPasswordRequestDTO.getUserName(), newPasswordRequestDTO.getPassword() , false);
+        UserAuthentication userAuthentication = userAuthenticationService.modifyPassword(newPasswordRequestDTO.getUserName(), newPasswordRequestDTO.getPassword() , false, null);
         emailService.newPassword(userAuthentication);
         return this.authenticate(new AuthenticateRequestDTO(newPasswordRequestDTO.getUserName(), newPasswordRequestDTO.getPassword()), httpServletRequest);
     }
@@ -171,4 +169,18 @@ public class SecurityService implements UserDetailsService {
         return ret.get();
     }
 
+    public MessageDTO editPassword(EditPasswordRequestDTO editPasswordRequestDTO, UserAuthentication currentUser) throws Exception {
+
+        Optional<UserAuthentication> userAuthentication = userAuthenticationService.findById(editPasswordRequestDTO.getIdUser());
+
+        if(!userAuthentication.isPresent()){
+            throw new ValidationException("Não foi encotrado usuario.");
+        }
+        if(userAuthentication.get().getCancellation().isCancelled()){
+            throw new ValidationException("Usuario cancelado.");
+        }
+        userAuthenticationService.modifyPassword(userAuthentication.get().getUserName(), editPasswordRequestDTO.getPassword() , true, currentUser);
+
+        return new MessageDTO("Sucesso ao editar senha.");
+    }
 }

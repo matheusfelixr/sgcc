@@ -45,6 +45,9 @@ public class UserAuthentication {
     @Embedded
     private CancellationImpl cancellation;
 
+    @Embedded
+    private DataControlImpl dataControl;
+
     public UserAuthentication() {
     }
 
@@ -57,6 +60,13 @@ public class UserAuthentication {
             cancellation = new CancellationImpl();
         }
         return cancellation;
+    }
+
+    public DataControlImpl getDataControl() {
+        if (this.dataControl == null) {
+            dataControl = new DataControlImpl();
+        }
+        return dataControl;
     }
 
     public void setUserName(String userName) {

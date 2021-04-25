@@ -68,7 +68,7 @@ public class SwaggerConfig {
     public String security() {
         String token;
         try {
-            AuthenticateRequestDTO authenticateRequestDTO = getOrCreateUser();
+            AuthenticateRequestDTO authenticateRequestDTO = getUser();
             token = securityService.authenticate(authenticateRequestDTO, null ).getToken();
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,28 +78,15 @@ public class SwaggerConfig {
         return token;
     }
 
-    private AuthenticateRequestDTO getOrCreateUser() {
+    private AuthenticateRequestDTO getUser() {
         try {
             Optional<UserAuthentication> user = userAuthenticationService.findByUserName("swagger");
-            Optional<UserAuthentication> userSystem = userAuthenticationService.findByUserName("System");
-
-            UserAuthentication userAuthentication = new UserAuthentication();
-            String password= "123456";
             
             if (!user.isPresent()) {
-                UserAuthentication ret = new UserAuthentication();
-
-                ret.setUserName("swagger");
-                ret.setPassword(password);
-                ret.setEmail("matheusfelixr@gmail.com");
-                ret.setChangePassword(false);
-                ret.setIsAdmin(true);
-                userAuthentication = userAuthenticationService.create(ret);
-            }else{
-                userAuthentication = user.get();
+                throw new ClassCastException("Usuario não encontrado.");
             }
 
-            return new AuthenticateRequestDTO(userAuthentication.getUserName(), password);
+            return new AuthenticateRequestDTO(user.get().getUserName(), "123456");
         } catch (Exception e) {
             e.printStackTrace();
         }

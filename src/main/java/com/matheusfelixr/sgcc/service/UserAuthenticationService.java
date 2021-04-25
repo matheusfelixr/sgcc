@@ -48,10 +48,13 @@ public class UserAuthenticationService {
         return Optional.ofNullable(userAuthenticationRepository.findByEmailAndCancellationCancellationDateIsNull(Email));
     }
 
-    public UserAuthentication modifyPassword(String userName, String password, Boolean changePassword) throws Exception {
+    public UserAuthentication modifyPassword(String userName, String password, Boolean changePassword, UserAuthentication currentUser) throws Exception {
         UserAuthentication userAuthentication = this.validateModifyPassword(userName);
         userAuthentication.setPassword(this.passwordEncoder.encode(password));
         userAuthentication.setChangePassword(changePassword);
+        if(currentUser != null){
+            userAuthentication.getDataControl().markModified(currentUser);
+        }
         userAuthenticationRepository.save(userAuthentication);
         return userAuthentication;
     }
