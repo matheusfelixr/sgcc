@@ -24,6 +24,13 @@ public class Operation {
     @Embedded
     private DataControlImpl dataControl;
 
+    public Operation(Long idOperation) {
+        this.id = idOperation;
+    }
+
+    public Operation() {
+    }
+
     public CancellationImpl getCancellation() {
         if(this.cancellation == null){
             cancellation = new CancellationImpl();

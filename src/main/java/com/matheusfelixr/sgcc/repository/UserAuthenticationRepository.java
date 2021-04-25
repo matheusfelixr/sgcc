@@ -15,4 +15,6 @@ public interface UserAuthenticationRepository extends JpaRepository<UserAuthenti
     UserAuthentication findByEmailAndCancellationCancellationDateIsNull(String email);
 
     Optional<UserAuthentication> findByEmployee(Employee employee);
+
+    UserAuthentication findByEmployeePersonCpf(String cpf);
 }

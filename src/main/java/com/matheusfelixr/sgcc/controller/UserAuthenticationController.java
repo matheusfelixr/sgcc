@@ -2,6 +2,8 @@ package com.matheusfelixr.sgcc.controller;
 
 import com.matheusfelixr.sgcc.model.domain.UserAuthentication;
 import com.matheusfelixr.sgcc.model.dto.MessageDTO;
+import com.matheusfelixr.sgcc.model.dto.UserAuthentication.UpdateUserAuthenticationDTO;
+import com.matheusfelixr.sgcc.model.dto.UserAuthentication.liteUserAuthenticationDTO;
 import com.matheusfelixr.sgcc.model.dto.config.ResponseApi;
 import com.matheusfelixr.sgcc.model.dto.security.*;
 import com.matheusfelixr.sgcc.service.SecurityService;
@@ -66,7 +68,7 @@ public class UserAuthenticationController {
 			UserAuthentication currentUser = securityService.getCurrentUser();
 
 			response.setData(this.userAuthenticationService.removeCancel(idUser, currentUser));
-			LOGGER.info("Autenticacao realizada com sucesso.");
+			LOGGER.info("Cancelamento realizada com sucesso.");
 			return ResponseEntity.ok(response);
 		} catch (ValidationException e) {
 			LOGGER.error(e.getMessage());
@@ -75,8 +77,57 @@ public class UserAuthenticationController {
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
 			e.printStackTrace();
-			LOGGER.error("Erro inesperado ao tentar autenticar");
-			List<String> errors = Arrays.asList("Erro inesperado ao tentar autenticar");
+			LOGGER.error("Erro inesperado ao tentar cancelar um usuario");
+			List<String> errors = Arrays.asList("Erro inesperado ao tentar cancelar um usuario");
+			response.setErrors(errors);
+			return ResponseEntity.ok(response);
+		}
+	}
+
+	@PutMapping(value  = "/update-user")
+	@ApiOperation(value = "Método responsável por editar um usuario.")
+	public ResponseEntity<ResponseApi<MessageDTO>> editUser(@RequestBody UpdateUserAuthenticationDTO updateUserAuthenticationDTO){
+		LOGGER.info("Inicio processo de editar um usuario");
+		ResponseApi<MessageDTO> response = new ResponseApi<>();
+		try {
+			UserAuthentication currentUser = securityService.getCurrentUser();
+
+			response.setData(this.userAuthenticationService.update(updateUserAuthenticationDTO, currentUser));
+			LOGGER.info("Sucesso ao editar usuario.");
+			return ResponseEntity.ok(response);
+		} catch (ValidationException e) {
+			LOGGER.error(e.getMessage());
+			response.setErrors(Arrays.asList(e.getMessage()));
+			return ResponseEntity.ok(response);
+		} catch (Exception e) {
+			LOGGER.info(e.getMessage());
+			e.printStackTrace();
+			LOGGER.error("Erro inesperado ao editar usuario");
+			List<String> errors = Arrays.asList("Erro inesperado ao editar usuario");
+			response.setErrors(errors);
+			return ResponseEntity.ok(response);
+		}
+	}
+
+
+	@GetMapping(value  = "/find-by-id/{idUser}")
+	@ApiOperation(value = "Método responsável por encontrar usuario por id.")
+	public ResponseEntity<ResponseApi<liteUserAuthenticationDTO>> editUser(@PathVariable(value = "idUser") Long idUser){
+		LOGGER.info("Inicio processo de editar um usuario");
+		ResponseApi<liteUserAuthenticationDTO> response = new ResponseApi<>();
+		try {
+			response.setData(liteUserAuthenticationDTO.convertToDTO(this.userAuthenticationService.findById(idUser).get()));
+			LOGGER.info("Sucesso ao editar usuario.");
+			return ResponseEntity.ok(response);
+		} catch (ValidationException e) {
+			LOGGER.error(e.getMessage());
+			response.setErrors(Arrays.asList(e.getMessage()));
+			return ResponseEntity.ok(response);
+		} catch (Exception e) {
+			LOGGER.info(e.getMessage());
+			e.printStackTrace();
+			LOGGER.error("Erro inesperado ao editar usuario");
+			List<String> errors = Arrays.asList("Erro inesperado ao editar usuario");
 			response.setErrors(errors);
 			return ResponseEntity.ok(response);
 		}
